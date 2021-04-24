@@ -6,6 +6,10 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Routing\UrlGenerator;
 
+use Illuminate\Contracts\Events\Dispatcher;
+use Illuminate\Support\Facades\Auth;
+use JeroenNoten\LaravelAdminLte\Events\BuildingMenu;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -27,7 +31,7 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot(UrlGenerator $url)
+    public function boot(UrlGenerator $url, Dispatcher $events)
     {
         //
         Schema::defaultStringLength(191);
@@ -36,5 +40,30 @@ class AppServiceProvider extends ServiceProvider
         {
             $url->formatScheme('https://');
         }
+        // Menu con las diferentes opciones
+        $events->listen(BuildingMenu::class, function (BuildingMenu $event)
+        {
+            $event->menu->add([
+                'text' => 'ADMINISTRACIÓN',
+                'icon' => 'fas fa-key',
+                'can' => 'administration-menu',
+                'submenu' => array([
+                    'text' => 'Roles',
+                    'icon' => 'fas fa-lock',
+                    'can' => 'rol-admin',
+                    'url'  => 'roles/',
+                ], [
+                    'text' => 'Permisos',
+                    'icon' => 'fas fa-lock',
+                    'can' => 'permission-admin',
+                    'url'  => 'permissions/',
+                ],[
+                    'text' => 'Usuarios',
+                    'icon' => 'fas fa-users',
+                    'can' => 'user-admin',
+                    'url'  => 'users/',
+                ]),
+            ]);
+        });
     }
 }
