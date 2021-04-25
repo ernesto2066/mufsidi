@@ -14,9 +14,9 @@ return [
     |
     */
 
-    'title' => '.::Sap Basis::.',
+    'title' => '',
     'title_prefix' => '',
-    'title_postfix' => '',
+    'title_postfix' => '| Sap Security',
 
     /*
     |--------------------------------------------------------------------------
@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'use_ico_only' => false,
+    'use_ico_only' => true,
     'use_full_favicon' => false,
 
     /*
@@ -50,7 +50,7 @@ return [
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'AdminLTE',
+    'logo_img_alt' => 'Sap Security',
 
     /*
     |--------------------------------------------------------------------------
@@ -121,8 +121,8 @@ return [
     */
 
     'classes_body' => '',
-    'classes_brand' => '',
-    'classes_brand_text' => '',
+    'classes_brand' => 'bg-white',
+    'classes_brand_text' => 'text-blue',
     'classes_content_wrapper' => '',
     'classes_content_header' => '',
     'classes_content' => '',
@@ -229,7 +229,8 @@ return [
             'search' => true,
             'topnav' => true,
         ],
-        [
+        
+        /*[
             'text' => 'blog',
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
@@ -240,18 +241,27 @@ return [
             'icon'        => 'far fa-fw fa-file',
             'label'       => 4,
             'label_color' => 'success',
-        ],
-        ['header' => 'account_settings'],
+        ],*/
+        ['header' => 'Configuraciones Generales'],
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
+            'text' => 'Construcción Rol',
+            'url'  => '#',
             'icon' => 'fas fa-fw fa-user',
+            'icon_color' => 'blue',
         ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'text' => 'Analisis',
+            'url'  => '#',
+            'icon' => 'fas fa-fw fa-hockey-puck',
+            'icon_color' => 'orange',
         ],
+        [
+            'text' => 'Estadisticas',
+            'url'  => '#',
+            'icon' => 'fas fa-fw fa-chart-bar',
+            'icon_color' => 'green',
+        ],
+        /*
         [
             'text'    => 'multilevel',
             'icon'    => 'fas fa-fw fa-share',
@@ -305,7 +315,7 @@ return [
             'text'       => 'information',
             'icon_color' => 'cyan',
             'url'        => '#',
-        ],
+        ],*/
     ],
 
     /*
