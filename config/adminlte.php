@@ -244,10 +244,19 @@ return [
         ],*/
         ['header' => 'Configuraciones Generales'],
         [
-            'text' => 'Construcción Rol',
-            'url'  => '#',
-            'icon' => 'fas fa-fw fa-user',
-            'icon_color' => 'blue',
+            'text' => 'Construcción Roles',
+            //'url'  => '#',
+            'icon' => 'fas fa-fw fa-users-cog',
+            'icon_color' => 'red',
+            
+            'submenu' =>[
+                [
+                    'text' => 'Creación Rol Simple',
+                    'url'  => 'rolSimple/create',
+                    'icon' => 'fas fa-fw fa-user-shield',
+                    'icon_color' => 'blue',
+                ],
+            ],
         ],
         [
             'text' => 'Analisis',
