@@ -11,7 +11,6 @@
     </div>
 @stop
 @section('content')
-
 <div class="card card-primary">
   <div class="card-header">
         
@@ -30,7 +29,7 @@
   <!-- /.card-header -->
   @include('layouts.formError')
   <div class="card-body">
-    <form action="{{ route('create.store') }}" method="post" class="form-horizontal">
+    <form action="{{ route('create.store') }}" method="POST" class="form-horizontal">
     {!! csrf_field() !!}
         <div class="form-group">
             <label for="name" class="col-sm-2 control-label">Nombre Rol:</label>
@@ -42,11 +41,12 @@
             <div><br></div>
             <label for="description" class="col-sm-2 control-label">Descripción Rol:</label>
             <div class="col-sm-10">
-                <input class="form-control" id="description" name="description" type="text" maxlength="150" required  value="{{ old('description') }}"/>
+                <!--<input class="form-control" id="description" name="description" type="text" maxlength="150" required  value="{{ old('description') }}"/>-->
+                <textarea class="form-control" id="description" name="description" rows="2" maxlength="150" required  value="{{ old('description') }}"></textarea>
             </div>
         </div>
         <div class="card-footer">
-            <button type="submit" class="btn btn-sm btn-danger">
+            <button type="submit" class="btn btn-sm btn-danger ">
                 <i class="fa fa-save"></i> Guardar
             </button>
         </div>

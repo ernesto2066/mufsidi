@@ -37,6 +37,19 @@ class RolSimpleController extends Controller
     public function store(Request $request)
     {
         //
+        //dd($request);
+        $this->validate($request, [
+            'name' => 'required|string|min:1|max:30',
+            'description' => 'required|string|min:1|max:150',
+        ]);
+        RolSimple::create([
+            'nombreRol' => $request->input('name'),
+            'descripcionRol' => $request->input('description'),
+        ]);
+        
+        return redirect()->route('create.store')->with('success', 'El rol simple ha sido creado con éxito');
+        //return back()->with('success','El rol simple ha sido creado con éxito');
+        
         
     }
 
